@@ -89,7 +89,7 @@ def main():
                            varscope_name='pursuit_mlp_baseline')
 
     # init sampler
-    sampler_cls = SimpleSampler
+    sampler_cls = DecSampler
     sampler_args = dict(max_traj_len=args.max_traj_len,
                         batch_size=args.batch_size,
                         min_batch_size=4,
