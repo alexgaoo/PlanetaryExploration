@@ -1,5 +1,7 @@
 import numpy as np
 
+from six.moves import xrange
+
 from .Agent import Agent
 
 #################################################################
@@ -16,7 +18,7 @@ def create_agents(nagents, map_matrix):
 	agents = []
 	for i in xrange(nagents):
 	    xinit, yinit = (0, 0)
-	    agent = TwoDAgent(xs, ys, map_matrix)
+	    agent = Agent(xs, ys, map_matrix)
 	    agent.set_position(xinit, yinit)
 	    agents.append(agent)
 	return agents
@@ -32,7 +34,7 @@ def set_agents(agent_matrix, map_matrix):
 	    for j in xrange(ys):
 	        n_agents = agent_matrix[i, j]
 	        if n_agents > 0:
-	            agent = TwoDAgent(xs, ys, map_matrix)
+	            agent = Agent(xs, ys, map_matrix)
 	            agent.set_position(i, j)
 	            agents.append(agent)
 	return agents
