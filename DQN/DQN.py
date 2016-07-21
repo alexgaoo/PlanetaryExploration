@@ -1,3 +1,38 @@
+# Import the necessary Chimp modules
+
+# Memory
+from chimp.memories import ReplayMemoryHDF5
+
+# Learner (Brain)
+from chimp.learners.dqn_learner import DQNLearner
+from chimp.learners.chainer_backend import ChainerBackend
+
+# Agent Framework
+from chimp.agents import DQNAgent
+
+# Policy class for evaluation
+from chimp.utils.policies import DQNPolicy
+
+# initialize our mountain car simulator
+simulator = MountainCar()
+
+# initialize the netowrk
+net = CarNet()
+
+# Initialize the learner with a Chainer backend and out net
+backend = ChainerBackend(settings) # initialize with the settings dictionary
+backend.set_net(net) # set the net for our Chainer backend
+learner = DQNLearner(settings, backend) # create the learner
+
+# Initialize replay memory
+memory = ReplayMemoryHDF5(settings)
+
+# Initialize the DQNAgent
+agent = DQNAgent(learner, memory, simulator, settings) # pass in all 3 and settings
+
+# Start training
+agent.train(verbose=True)
+
 import chainer
 import chainer.functions as F
 import chainer.links as L
@@ -43,7 +78,7 @@ settings = {
     'initial_exploration' : 50000, # number of trainstions initally in reaply memory
     'epsilon_decay' : 0.000001, # subtract from epsilon every step
     'eval_epsilon' : 0, # epsilon used in evaluation, 0 means no random actions
-    'epsilon' : 1.0,  # Initial exploratoin rate
+    'epsilon' : 1.0,  # Initial exploration rate
     'history_sizes' : (1, 0, 0), # sizes of histories to use as nn inputs (s, a, r)
     'model_dims' : (2,),
 

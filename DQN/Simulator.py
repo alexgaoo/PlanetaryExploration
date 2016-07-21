@@ -4,7 +4,7 @@ class PlanetaryExploration()
     def __init__(self,
                  term_r = 100,
                  nonterm_r = -1,
-                 discount = .75)
+                 discount = .95)
         
         self.actions = np.array([-1,0,1])
         
@@ -21,7 +21,9 @@ class PlanetaryExploration()
         # returns the reward R(s,a) where s is the state before calling act, and a is the action passed to act
         r = 
         if self.episode_over:
-            r = -
+            r = term_r
+        elif 
+        
             
         
 
