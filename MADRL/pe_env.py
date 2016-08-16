@@ -17,23 +17,22 @@ from .utils.Controllers import RandomPolicy
 
 
 class PlanetaryExploration():
-	def __init__(self, n_agents = 3, site_reward = 1, noterm = -0.1, term = 10
+	def __init__(self, map_matrix, n_agents = 3, site_reward = 1, noterm = -0.1, term = 10):
 		self.n_agents = n_agents
 		self.site_reward = site_reward
 		self.noterm = noterm
-		self.term = 
+		self.term = term
+
+		agents = agent_utils.create_agents(self.n_agents, map_matrix)
 
 	@property	
 	def action_space(self):
-		return spaces.Discrete()
+		return spaces.Discrete()	
 
 	@property
     	def observation_space(self):
               	return spaces.Box(###)
-
-            
-
-              
+  
 
 	def reset(self):
 
@@ -44,7 +43,8 @@ class PlanetaryExploration():
 		r = self.reward
 
 
-
+		for i, a in enumerate(actions):
+            		agent_layer.move_agent(i, a)
 
 
 
@@ -63,6 +63,9 @@ class PlanetaryExploration():
 		r_joint = self.noterm * 
 
              def is_terminal(self):
+             	if 
+
+
 
 
 

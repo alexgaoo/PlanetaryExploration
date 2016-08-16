@@ -9,6 +9,8 @@ import gym
 import rltools.algos.policyopt
 import rltools.log
 import rltools.util
+from pe_env import PlanetaryExploration
+from utils.Map import 
 from rltools.samplers.serial import SimpleSampler, ImportanceWeightedSampler, DecSampler
 from rltools.baselines.linear import LinearFeatureBaseline
 from rltools.baselines.mlp import MLPBaseline
@@ -68,7 +70,7 @@ def main():
     args = parser.parse_args()
 
     # init environment
-    env = gym.make(args.env)
+    env = PlanetaryExploration
 
     # init policy network
     policy = CategoricalMLPPolicy(env.observation_space,

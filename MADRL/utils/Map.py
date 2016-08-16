@@ -13,7 +13,7 @@ def rectangle_map(xs, ys, xb=0.3, yb=0.2):
     rmap = np.zeros((xs, ys), dtype=np.int32)
     for i in xrange(xs):
         for j in xrange(ys):
-            # are we in the rectnagle in x dim?
+            # are we in the rectangle in x dim?
             if (float(i) / xs) > xb and (float(i) / xs) < (1.0 - xb):
                 # are we in the rectangle in y dim?
                 if (float(j) / ys) > yb and (float(j) / ys) < (1.0 - yb):
