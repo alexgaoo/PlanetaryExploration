@@ -11,18 +11,18 @@ class Agent():
 
 		self.xs = xs
 		self.ys = ys
+#Add velocity motion model
+#		self.eactions = [0, 	# move left
+#				 1, 	# move right
+#				 2, 	# move up
+#				 3,	# move down
+#				 4]	# stay
 
-		self.eactions = [0, 	# move left
-				 1, 	# move right
-				 2, 	# move up
-				 3,	# move down
-				 4]	# stay
-
-		self.motion_range = [[-1, 0],
-				           [1, 0],
-				           [0, 1],
-				           [0, -1],
-				           [0, 0]]
+#		self.motion_range = [[-1, 0],
+#				           [1, 0],
+#				           [0, 1],
+#				           [0, -1],
+#				           [0, 0]]
 
 		self.current_pos  = np.zeros(2, dtype = np.int32)
 		self.last_pos = np.zeros(2, dtype = np.int32)

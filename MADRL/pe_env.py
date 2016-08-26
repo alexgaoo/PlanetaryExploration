@@ -35,7 +35,7 @@ class PlanetaryExploration():
   
 
 	def reset(self):
-
+                
 		return o
 
 
@@ -63,11 +63,4 @@ class PlanetaryExploration():
 		r_joint = self.noterm * 
 
              def is_terminal(self):
-             	if 
-
-
-
-
-
-
-
+             	i

@@ -15,7 +15,7 @@ from rltools.samplers.serial import SimpleSampler, ImportanceWeightedSampler, De
 from rltools.baselines.linear import LinearFeatureBaseline
 from rltools.baselines.mlp import MLPBaseline
 from rltools.baselines.zero import ZeroBaseline
-from rltools.policy.categorical import CategoricalMLPPolicy
+from rltools.policy.categorical import CategoricalMLPPolicy, GaussianMLPPolicy
 
 SIMPLE_POLICY_ARCH = '''[
         {"type": "fc", "n": 32},
@@ -36,36 +36,7 @@ SIMPLE_VAL_ARCH = '''[
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--env', type=str,
-                        default='CartPole-v0')  # gym environment
-
-    parser.add_argument('--discount', type=float, default=0.95)
-    parser.add_argument('--gae_lambda', type=float, default=0.99)
-
-    parser.add_argument('--n_iter', type=int, default=250)  # trpo iterations
-    parser.add_argument('--max_traj_len',
-                        type=int,
-                        default=200)  # max length of a trajectory (ts)
-    parser.add_argument('--batch_size', type=int,
-                        default=32)  # number of traj in an iteration
-
-    parser.add_argument('--policy_hidden_spec',
-                        type=str,
-                        default=SIMPLE_POLICY_ARCH)  # policy net architecture
-    parser.add_argument(
-            '--baseline_hidden_spec',
-            type=str, default=SIMPLE_VAL_ARCH)  # baseline value net architecture
-
-    # TRPO params
-    parser.add_argument('--max_kl', type=float, default=0.01)
-    parser.add_argument('--vf_max_kl', type=float, default=0.01)
-    parser.add_argument('--vf_cg_damping', type=float, default=0.01)
-
-    parser.add_argument('--save_freq', type=int,
-                        default=20)  # how often checkpoints are made
-    parser.add_argument('--log', type=str, required=False)  # log file
-    parser.add_argument('--tblog', type=str,
-                        default='/tmp/madrl_tb')  # tensorboard log dir
+    parser.add_argument('--env', type=str
 
     args = parser.parse_args()
 

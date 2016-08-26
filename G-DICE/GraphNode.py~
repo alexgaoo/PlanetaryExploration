@@ -1,0 +1,17 @@
+class GraphNode:
+
+    def sampleTMAs():
+
+
+    def sampleTrans():
+
+
+    def setTOSampleNumber():
+
+
+    def setTMA():
+
+
+    def setNexstNode():
+
+    
